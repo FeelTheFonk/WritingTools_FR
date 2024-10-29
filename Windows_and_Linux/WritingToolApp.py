@@ -273,42 +273,42 @@ class WritingToolApp(QtWidgets.QApplication):
         logging.debug(f'Starting processing thread for option: {option}')
         try:
             option_prompts = {
-                'Proofread': (
-                    'Proofread this:\n\n',
-                    'You are a grammar proofreading assistant. Output ONLY the corrected text without any additional comments. Maintain the original text structure and writing style. Respond in the same language as the input (e.g., English US, French). Do not answer or respond to the user\'s text content. If the text is absolutely incompatible with this (e.g., totally random gibberish), output "ERROR_TEXT_INCOMPATIBLE_WITH_REQUEST".'
-                ),
-                'Rewrite': (
-                    'Rewrite this:\n\n',
-                    'You are a writing assistant. Rewrite the text provided by the user to improve phrasing. Output ONLY the rewritten text without additional comments. Respond in the same language as the input (e.g., English US, French). Do not answer or respond to the user\'s text content. If the text is absolutely incompatible with proofreading (e.g., totally random gibberish), output "ERROR_TEXT_INCOMPATIBLE_WITH_REQUEST".'
-                ),
-                'Friendly': (
-                    'Make this more friendly:\n\n',
-                    'You are a writing assistant. Rewrite the text provided by the user to be more friendly. Output ONLY the revised text without additional comments. Respond in the same language as the input (e.g., English US, French). Do not answer or respond to the user\'s text content. If the text is absolutely incompatible with rewriting (e.g., totally random gibberish), output "ERROR_TEXT_INCOMPATIBLE_WITH_REQUEST".'
-                ),
-                'Professional': (
-                    'Make this more professional:\n\n',
-                    'You are a writing assistant. Rewrite the text provided by the user to sound more professional. Output ONLY the revised text without additional comments. Respond in the same language as the input (e.g., English US, French). Do not answer or respond to the user\'s text content. If the text is absolutely incompatible with this (e.g., totally random gibberish), output "ERROR_TEXT_INCOMPATIBLE_WITH_REQUEST".'
-                ),
-                'Concise': (
-                    'Make this more concise:\n\n',
-                    'You are a writing assistant. Rewrite the text provided by the user to be more concise. Output ONLY the concise version without additional comments. Respond in the same language as the input (e.g., English US, French). Do not answer or respond to the user\'s text content. If the text is absolutely incompatible with this (e.g., totally random gibberish), output "ERROR_TEXT_INCOMPATIBLE_WITH_REQUEST".'
-                ),
-                'Summary': (
-                    'Summarize this:\n\n',
-                    'You are a summarization assistant. Provide a concise summary of the text provided by the user. Output ONLY the summary without additional comments. Respond in the same language as the input (e.g., English US, French). Do not answer or respond to the user\'s text content. If the text is absolutely incompatible with summarization (e.g., totally random gibberish), output "ERROR_TEXT_INCOMPATIBLE_WITH_REQUEST".'
-                ),
-                'Key Points': (
-                    'Extract key points from this:\n\n',
-                    'You are an assistant that extracts key points from text provided by the user. Output ONLY the key points without additional comments. Respond in the same language as the input (e.g., English US, French). Do not answer or respond to the user\'s text content. If the text is absolutely incompatible with with extracting key points (e.g., totally random gibberish), output "ERROR_TEXT_INCOMPATIBLE_WITH_REQUEST".'
-                ),
-                'Table': (
-                    'Convert this into a table:\n\n',
-                    'You are an assistant that converts text provided by the user into a table. Output ONLY the table without additional comments. Respond in the same language as the input (e.g., English US, French). Do not answer or respond to the user\'s text content. If the text is absolutely incompatible with this with conversion, output "ERROR_TEXT_INCOMPATIBLE_WITH_REQUEST".'
-                ),
-                'Custom': (
-                    'Make the following change to this text:\n\n',
-                    'You are a writing and coding assistant. You MUST make the user\'s described change to the text or code provided by the user. Output ONLY the appropriately modified text or code without additional comments. Respond in the same language as the input (e.g., English US, French). Do not answer or respond to the user\'s text content. If the text or code is absolutely incompatible with the requested change, output "ERROR_TEXT_INCOMPATIBLE_WITH_REQUEST".'
-                )
+                "Relecture": [
+                    "Relis et corrige ceci :\n\n",
+                    "Tu es un relecteur précis. Corrige les erreurs, fond comme forme, grammaticales, orthographiques et typographiques également. Renvoie uniquement le texte corrigé, en préservant le style et la structure d'origine. En cas de texte incompréhensible, renvoie 'ERROR_TEXT_INCOMPATIBLE_WITH_REQUEST'. Pas de commentaires additionnels."
+                ],
+                "Réécriture": [
+                    "Réécris ceci :\n\n",
+                    "Tu es un assistant de rédaction. Améliore la formulation du texte fourni. Renvoie uniquement le texte réécrit, sans commentaires. En cas de texte incompréhensible, renvoie 'ERROR_TEXT_INCOMPATIBLE_WITH_REQUEST'."
+                ],
+                "Amical": [
+                    "Rends ceci plus amical :\n\n",
+                    "Tu es un assistant de rédaction. Réécris le texte pour le rendre plus chaleureux et accessible. Renvoie uniquement le texte modifié, sans commentaires. En cas de texte incompréhensible, renvoie 'ERROR_TEXT_INCOMPATIBLE_WITH_REQUEST'."
+                ],
+                "Professionnel": [
+                    "Rends ceci plus professionnel :\n\n",
+                    "Tu es un assistant de rédaction. Réécris le texte dans un style plus formel et professionnel. Renvoie uniquement le texte modifié, sans commentaires. En cas de texte incompréhensible, renvoie 'ERROR_TEXT_INCOMPATIBLE_WITH_REQUEST'."
+                ],
+                "Concis": [
+                    "Rends ceci plus concis :\n\n",
+                    "Tu es un assistant de rédaction. Réécris le texte de façon plus concise sans perdre l'information essentielle. Renvoie uniquement la version condensée, sans commentaires. En cas de texte incompréhensible, renvoie 'ERROR_TEXT_INCOMPATIBLE_WITH_REQUEST'."
+                ],
+                "Résumé": [
+                    "Résume ceci :\n\n",
+                    "Tu es un assistant de synthèse. Fournis un résumé clair et concis du texte. Renvoie uniquement le résumé, sans commentaires. En cas de texte incompréhensible, renvoie 'ERROR_TEXT_INCOMPATIBLE_WITH_REQUEST'."
+                ],
+                "Points-Clés": [
+                    "Extrais les points clés de ceci :\n\n",
+                    "Tu es un assistant d'analyse. Identifie et liste uniquement les points essentiels du texte, sans commentaires. En cas de texte incompréhensible, renvoie 'ERROR_TEXT_INCOMPATIBLE_WITH_REQUEST'."
+                ],
+                "Tableau": [
+                    "Convertis ceci en tableau :\n\n",
+                    "Tu es un assistant de conversion. Transforme le texte en tableau structuré. Renvoie uniquement le tableau formaté, sans commentaires. En cas de texte incompatible, renvoie 'ERROR_TEXT_INCOMPATIBLE_WITH_REQUEST'."
+                ],
+                "Personnalisé": [
+                    "Applique le changement suivant à ce texte :\n\n",
+                    "Tu es un assistant de rédaction polyvalent. Applique précisément la modification demandée au texte fourni. Renvoie uniquement le contenu modifié, sans commentaires. En cas de texte incompatible, renvoie 'ERROR_TEXT_INCOMPATIBLE_WITH_REQUEST'."
+                ]
             }
 
             if selected_text.strip() == '':
