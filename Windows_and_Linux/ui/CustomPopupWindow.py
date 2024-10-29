@@ -107,14 +107,14 @@ class CustomPopupWindow(QtWidgets.QWidget):
             options_grid.setSpacing(10)
 
             options = [
-                ('Proofread', 'icons/magnifying-glass' + ('_dark' if colorMode == 'dark' else '_light') + '.png', self.on_proofread),
-                ('Rewrite', 'icons/rotate-left' + ('_dark' if colorMode == 'dark' else '_light') + '.png', self.on_rewrite),
-                ('Friendly', 'icons/smiley-face' + ('_dark' if colorMode == 'dark' else '_light') + '.png', self.on_friendly),
-                ('Professional', 'icons/briefcase' + ('_dark' if colorMode == 'dark' else '_light') + '.png', self.on_professional),
-                ('Concise', 'icons/concise' + ('_dark' if colorMode == 'dark' else '_light') + '.png', self.on_concise),
-                ('Summary', 'icons/summary' + ('_dark' if colorMode == 'dark' else '_light') + '.png', self.on_summary),
-                ('Key Points', 'icons/keypoints' + ('_dark' if colorMode == 'dark' else '_light') + '.png', self.on_keypoints),
-                ('Table', 'icons/table' + ('_dark' if colorMode == 'dark' else '_light') + '.png', self.on_table)
+                ('Relecture', 'icons/magnifying-glass' + ('_dark' if colorMode == 'dark' else '_light') + '.png', self.on_proofread),
+                ('Réécriture', 'icons/rotate-left' + ('_dark' if colorMode == 'dark' else '_light') + '.png', self.on_rewrite),
+                ('Amical', 'icons/smiley-face' + ('_dark' if colorMode == 'dark' else '_light') + '.png', self.on_friendly),
+                ('Professionnel', 'icons/briefcase' + ('_dark' if colorMode == 'dark' else '_light') + '.png', self.on_professional),
+                ('Concis', 'icons/concise' + ('_dark' if colorMode == 'dark' else '_light') + '.png', self.on_concise),
+                ('Résumé', 'icons/summary' + ('_dark' if colorMode == 'dark' else '_light') + '.png', self.on_summary),
+                ('Points-Clés', 'icons/keypoints' + ('_dark' if colorMode == 'dark' else '_light') + '.png', self.on_keypoints),
+                ('Tableau', 'icons/table' + ('_dark' if colorMode == 'dark' else '_light') + '.png', self.on_table),
             ]
 
             for i, (label, icon_path, callback) in enumerate(options):
